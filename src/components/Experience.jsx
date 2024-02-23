@@ -1,3 +1,7 @@
+/* eslint-disable react-refresh/only-export-components */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/no-unknown-property */
+
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -11,7 +15,7 @@ import { styles } from "../style";
 import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 const ExperinceCard = ({ experience }) => {
   return (

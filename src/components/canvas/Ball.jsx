@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable react/prop-types */
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 
@@ -6,16 +8,14 @@ import { useTexture } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
 
-const Ball = ({ imgUrl }) => {
-  const [decal] = useTexture(imgUrl);
-
-  console.log(decal);
+const Ball = (props) => {
+  const [decal] = useTexture([props.imgUrl]);
   return (
     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
-      <ambientLight intensity={2.5} />
-      <directionalLight position={[20, 20, 5]} intensity={1.5} />
+      <ambientLight intensity={0.25} />
+      <directionalLight position={[0, 0, 0.05]} />
       <mesh castShadow receiveShadow scale={2.75}>
-        <icosahedronBufferGeometry args={[1, 1]} />
+        <icosahedronGeometry args={[1, 1]} />
         <meshStandardMaterial
           color="#fff8eb"
           polygonOffset
@@ -35,15 +35,15 @@ const Ball = ({ imgUrl }) => {
 
 const BallCanvas = ({ icon }) => {
   return (
-    <div>s</div>
-    // <Canvas frameloop="demand" gl={{ preserveDrawingBuffer: true }}>
-    //   {/* <ambientLight intensity={2.5} /> */}
-    //   {/* <directionalLight position={[20, 20, 5]} intensity={1.5} /> */}
-    //   <Suspense fallback={<CanvasLoader />}>
-    //     <OrbitControls enableZoom={false} />
-    //     <Ball imgUrl={icon} />
-    //   </Suspense>
-    // </Canvas>
+    <Canvas gl={{ preserveDrawingBuffer: true }}>
+      <ambientLight intensity={0.25} />
+      <directionalLight position={[0, 0, 0.05]} />
+      <Suspense fallback={<CanvasLoader />}>
+        <OrbitControls enableZoom={false} />
+        <Ball imgUrl={icon} />
+      </Suspense>
+      <Preload all />
+    </Canvas>
   );
 };
 

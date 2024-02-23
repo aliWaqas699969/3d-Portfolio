@@ -26,9 +26,9 @@ import threejs from "./tech/threejs.svg";
 import shopify from "./company/shopify.png";
 import ybTech from "./company/ybtech.png";
 
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
+import ybtech from "./YbTech.png";
+import tapandeat from "./tapandeat.png";
+import mragain from "./mrAgain.png";
 
 export {
   logo,
@@ -55,7 +55,7 @@ export {
   threejs,
   shopify,
   ybTech,
-  carrent,
-  jobit,
-  tripguide,
+  ybtech,
+  tapandeat,
+  mragain,
 };
